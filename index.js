@@ -33,7 +33,6 @@ async function run() {
         const database = client.db('emaJohn');
         const productsCollection = database.collection('products');
         const orderCollection = database.collection('orderDetails');
-        console.log('Connected successfully to server');
 
         // To post all product 
         app.post('/addProduct', (req, res) => {
@@ -86,6 +85,4 @@ run().catch(console.dir);
 
 
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+app.listen(process.env.PORT || port)
